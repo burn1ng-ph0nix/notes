@@ -1,6 +1,5 @@
 """ACTIONS ON OBJECTIVE"""
 
-Commands:
   Initial Access:
     whoami
     id
@@ -15,15 +14,35 @@ Commands:
     sudo -l
     find / -perm -4000 -type f 2>/dev/null
     cat /etc/sudoers
+    
+    Artifacts left behind: 
+      Shell History 
+      Audit Logs  
+      Bash Process Traces 
+      File Access Timestamps 
 
-  Network Recon:
-    netstat -antup
-    ss -lntp
-    ip a
-    ifconfig
-    arp -a
 
   Log Clearing:
-    history -c
-    rm ~/.bash_history
-    truncate -s 0 /var/log/auth.log
+    history -c                           # clear current session history 
+    rm ~/.bash_history                   # Delete history file
+    truncate -s 0 /var/log/auth.log      # Truncate log file to zero bytes
+    echo "" > ~/.bash_history            # Overwrite history file
+    rm /var/log/auth.log                 # Log File Deletion
+    rm /var/log/syslog                   # "                "
+    rm /var/log/messages                 # "                "
+    systemctl stop rsyslog               # Stop logging services
+    systemctl stop auditd                # "                  "
+    systemctl restart rsyslog            # Restart services
+    journalctl --vacuum-time=1s          # Vacuum journal logs
+    rm -rf /var/log/journal/*            # Remove journal directory
+    auditctl -e 0
+
+
+
+
+
+
+
+
+
+
