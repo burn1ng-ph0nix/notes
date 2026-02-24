@@ -1,1 +1,6 @@
+after docker is on your desktop go to powershell and run this command: docker pull ghcr.io/open-webui/open-webui:main
+
+once that is complete you now run the command: docker run -d -p 3000:8080 -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
+
+this will run the backend locally for open web ui it will show in the container section of docker once its complete, you now can go to localhost:3000 and access the locally ran open-webui
 
