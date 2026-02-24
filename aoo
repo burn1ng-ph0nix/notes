@@ -1,2 +1,29 @@
 """ACTIONS ON OBJECTIVE"""
 
+Commands:
+  Initial Access:
+    whoami
+    id
+    uname -a
+    hostname
+    pwd
+    ls -la
+    cat /etc/passwd
+    cat /etc/shadow
+  
+  Priv Esc:
+    sudo -l
+    find / -perm -4000 -type f 2>/dev/null
+    cat /etc/sudoers
+
+  Network Recon:
+    netstat -antup
+    ss -lntp
+    ip a
+    ifconfig
+    arp -a
+
+  Log Clearing:
+    history -c
+    rm ~/.bash_history
+    truncate -s 0 /var/log/auth.log
